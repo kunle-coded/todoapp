@@ -1,0 +1,533 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  /*font-size: 16px;*/
+  font-size: small;
+  color: black;
+}
+
+body.dark {
+  font-family: "Montserrat", sans-serif;
+  background-color: #2d2a2e;
+  font-size: small;
+  color: white;
+}
+
+/*headers*/
+h1,
+h2 {
+  margin-bottom: 15px;
+}
+
+/*Lists items*/
+ul {
+  list-style: none;
+}
+
+.task-button {
+  width: 150px;
+  height: 30px;
+  background: linear-gradient(to top left, #28b487, #7dd56f);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: large;
+}
+
+.task-button:hover {
+  background: linear-gradient(to top left, #209973, #4e9e42);
+}
+
+.task-buttons {
+  margin-top: 12px;
+}
+.button-delete {
+  width: 60px;
+  height: 20px;
+  margin-left: 20px;
+  background-color: rgb(206, 48, 9);
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: small;
+}
+
+.button-delete:hover {
+  background-color: rgb(160, 20, 20);
+}
+
+.button-complete {
+  width: 70px;
+  height: 20px;
+  margin-left: 10px;
+  background-color: #4b8333;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: small;
+}
+
+.button-complete:hover {
+  background-color: #214611;
+}
+
+.page-container {
+  flex: 1;
+}
+
+.navibar {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  background-color: rgb(32, 153, 115, 0.1);
+  height: 70px;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navibar ul {
+  display: flex;
+  margin: 0 40px;
+}
+
+.navibar a {
+  text-decoration: none;
+}
+
+.navibar ul li {
+  margin-left: 20px;
+}
+
+.fa-github {
+  color: #171515;
+}
+.fa-github.dark {
+  color: whitesmoke;
+}
+
+.fa-twitter {
+  color: #00acee;
+}
+.fa-instagram {
+  color: #5851db;
+}
+
+/*Dark mode switch button*/
+.darkmode-switch {
+  display: grid;
+}
+
+.moon,
+.sun {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.moon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #2d2a2e;
+  margin: auto;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.fa-moon {
+  color: #fff;
+}
+
+.sun {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #b9d3d3;
+  margin: auto;
+  margin-right: 30px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.fa-sun {
+  color: #0b0c10;
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+  margin-top: 25px;
+}
+
+.main.section {
+  width: 80%;
+  padding-left: 25px;
+  justify-content: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.2rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.modal.dark {
+  background-color: #2d2a2e;
+  font-size: small;
+  font-weight: lighter;
+  color: white;
+}
+
+.modal h1 {
+  margin-top: -50px;
+  font-size: medium;
+  font-weight: lighter;
+}
+
+#task-input {
+  position: relative;
+  height: 90px;
+  width: 95%;
+  margin-top: 5px;
+  background-color: whitesmoke;
+  border: none;
+  text-align: start;
+  resize: none;
+}
+
+#task-title {
+  position: relative;
+  height: 20px;
+  width: 95%;
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+  border: none;
+  text-align: start;
+  resize: none;
+}
+
+#task-title.dark {
+  background-color: #323133;
+  color: white;
+}
+#task-title:focus {
+  outline: none;
+}
+
+#task-input.dark {
+  background-color: #323133;
+  color: white;
+}
+
+#task-input:focus {
+  outline: none;
+}
+
+.button-add-task {
+  position: absolute;
+  bottom: 10%;
+  margin-left: -40%;
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(to top left, #28b487, #7dd56f);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 89.5%;
+  font-weight: 600;
+}
+
+.button-add-task:hover {
+  background: linear-gradient(to top left, #209973, #4e9e42);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(122, 120, 120, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.hidden {
+  display: none;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: 400px;
+  max-height: 400px;
+  height: fit-content;
+  margin-left: 50px;
+  border: none;
+  box-shadow: 10px 10px 50px 0.1px rgb(180, 176, 176);
+  position: relative;
+}
+
+#task-1 {
+  margin-right: 10px;
+  /*visibility: hidden;*/
+}
+
+.form-section {
+  margin: 35px auto;
+}
+
+.input-area {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -5px;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-left: 50px;
+  max-height: inherit;
+  padding: 0 5px 4px;
+  margin-right: auto;
+}
+
+.task-text {
+  font-weight: bold;
+}
+
+.task-desc {
+  width: 500px;
+}
+
+.task-info {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-left: 35%;
+  font-weight: bold;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.smile {
+  margin-right: 10px;
+}
+
+.fa-smile {
+  color: #209973;
+}
+
+.pagination {
+  display: flex;
+
+  padding: 0 2.5rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.btn--inline {
+  font-size: 0, 7rem;
+  font-weight: 600;
+  height: 30px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: #f9f5f3;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.btn--inline.dark {
+  background-color: #221f22;
+  color: white;
+}
+
+.btn--inline.dark:hover {
+  color: #209973;
+  background-color: #19181a;
+}
+
+.pagination svg {
+  height: 1.6rem;
+  width: 1.6rem;
+  fill: currentColor;
+  margin: 0 0.2rem;
+}
+
+.pagination span {
+  margin: 0 0.4rem;
+}
+
+.btn--inline:hover {
+  color: #209973;
+  background-color: #f2efee;
+}
+
+.btn--inline:focus {
+  outline: none;
+}
+
+.prev {
+  float: left;
+  margin-right: 230px;
+}
+.next {
+  float: right;
+  margin-left: 230px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  width: 20%;
+  height: 100%;
+  border: none;
+  /*box-shadow: -35px 65px 55px 1px rgb(59, 59, 59);   border-bottom: 1px solid;*/
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 35%;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 auto 15px auto;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.menu.pend {
+  margin-top: 25px;
+}
+
+.menu h1 {
+  font-size: 16px;
+}
+
+.circle-completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 20px solid green;
+}
+.circle-completed h1 {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+.circle-pending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 20px solid orange;
+}
+
+.circle-pending h1 {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.nav-link {
+  display: flex;
+  width: 70%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.selected {
+  background-color: rgb(32, 153, 115, 0.1);
+}
+
+.footer {
+  display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgb(32, 153, 115, 0.1);
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}

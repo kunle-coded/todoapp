@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Planner - Task Manager</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <header class="header">
+        <nav class="navibar">
+          <div class="darkmode-switch">
+            <div class="moon">
+              <i class="fa fa-moon"></i>
+            </div>
+            <div class="sun">
+              <i class="fa fa-sun"></i>
+            </div>
+          </div>
+          <div class="nav-container">
+            <ul class="social-icons">
+              <li id="github">
+                <a href="https://github.com/kunle-coded/" target="_blank"
+                  ><i class="fab fa-github fa-lg"></i
+                ></a>
+              </li>
+              <li id="twitter">
+                <a href="https://twitter.com/kunle_ronald" target="_blank"
+                  ><i class="fab fa-twitter fa-lg"></i
+                ></a>
+              </li>
+              <li id="ig">
+                <a
+                  href="https://www.instagram.com/kunle_ronald/"
+                  target="_blank"
+                  ><i class="fab fa-instagram fa-lg"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div class="main-container">
+        <aside class="sidebar">
+          <div class="menu item">
+            <h1 class="title">Completed</h1>
+            <div class="circle-completed">
+              <h1 class="completed-count">0</h1>
+            </div>
+          </div>
+          <div class="menu item pend">
+            <h1 class="title">Pending</h1>
+            <div class="circle-pending">
+              <h1 class="pending-count">0</h1>
+            </div>
+          </div>
+        </aside>
+        <div class="main section">
+          <section class="summary-section">
+            <div class="form-section">
+              <button class="task-button" type="submit">Create Task</button>
+            </div>
+            <div class="task-list"></div>
+            <div class="modal hidden">
+              <button class="close-modal">&times;</button>
+              <h5>Title</h5>
+              <input type="text" id="task-title" />
+              <h5>Description</h5>
+              <textarea
+                name="task input"
+                id="task-input"
+                cols="30"
+                rows="5"
+              ></textarea>
+              <button class="button-add-task">Add</button>
+            </div>
+            <div class="overlay hidden"></div>
+          </section>
+          <section class="summary section">
+            <div class="task-info">
+              <p>Select task to delete or mark as complete</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>Copyright &copy; 2023 Kunle Adesokan</p>
+    </footer>
+  </body>
+</html>
+<!--
+  <div class="message">
+                <div class="smile">
+                  <i class="fa fa-smile fa-lg"></i>
+                </div>
+                <p>Start by creating a task!</p>
+              </div>
+  <div class="pagination">
+                <button class="btn--inline prev">
+                  <svg class="prev-icon">
+                    <use href="img/icons.svg#icon-arrow-left"></use>
+                  </svg>
+                  <span>Page 1</span>
+                </button>
+                <button class="btn--inline next">
+                  <span>Page 3</span>
+                  <svg class="next-icon">
+                    <use href="img/icons.svg#icon-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>-->
